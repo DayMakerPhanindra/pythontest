@@ -15,7 +15,7 @@ def index():
 def show_headers():
     headers = request.headers
     headers_dict = {key: value for key, value in headers.items()}
-    return f"<pre>{headers_dict}</pre>"
+    return f"{headers_dict}"
 
 if __name__ == '__main__':
     app.run(debug=True)
