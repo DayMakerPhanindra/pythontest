@@ -11,6 +11,15 @@ def index():
    print('Request for index page received')
    return render_template('index.html')
 
+@app.route('/headers')
+def show_headers():
+    headers = request.headers
+    headers_dict = {key: value for key, value in headers.items()}
+    return f"<pre>{headers_dict}</pre>"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
